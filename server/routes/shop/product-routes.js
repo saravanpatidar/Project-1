@@ -8,7 +8,7 @@ const { fetchAllProducts,createProduct,fetchProductById,deleteProduct } = requir
 
 const router = express.Router();
 
-const uploadFolder = path.join('public');
+const uploadFolder = path.join(__dirname,'../../public');
 
 if(!fs.existsSync(uploadFolder)){
     fs.mkdirSync(uploadFolder);
@@ -23,7 +23,7 @@ const storage = multer.diskStorage({
 })
 
 const upload = multer({ storage: storage });
-router.use('/public',express.static(uploadFolder));
+
 // router.use('/public', express.static(path.join(__dirname, 'public')));
 
 router.get('/products',fetchAllProducts)

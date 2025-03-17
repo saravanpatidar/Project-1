@@ -15,6 +15,8 @@ app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 
+app.use('/public',express.static('public'));
+
 app.use('/auth',authRouter)
 app.use('/shop',shopProductRouter)
 app.use('/shop/cart',shopCartRouter)
@@ -25,23 +27,3 @@ app.get('/',(req,res)=>{
 
 
 app.listen(PORT,()=>console.log(`Server running on http://localhost:${PORT}`));
-
-
-
-
-
-
-// name
-// "Laptop"
-// price
-// 1200
-// category
-// "Electronics"
-// stock
-// 30
-// brand
-// "CompTech"
-// rating
-// 4.8
-// quantity
-// 8
