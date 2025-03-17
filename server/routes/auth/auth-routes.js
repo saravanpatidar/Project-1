@@ -6,7 +6,10 @@ router.post('/register',registerUser)
 router.post('/login',loginUser)
 
 router.get('/check-auth',authMiddleware,(req,res)=>{
-    console.log(req.user);
+    res.json({
+        success: true,
+        user: req.user 
+    });
 });
 
 module.exports =  router;
